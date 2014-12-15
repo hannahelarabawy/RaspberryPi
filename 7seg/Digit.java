@@ -7,16 +7,17 @@ import com.pi4j.io.gpio.RaspiPin;
 
 public class Digit {
 final GpioController gpio;
+final GpioPinDigitalOutput pin2, pin3, pin4, pin5, pin6, pin7, pin8;
 public Digit()
   {
 	gpio = GpioFactory.getInstance();
-	final GpioPinDigitalOutput pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02, "LED2", PinState.LOW);
-	final GpioPinDigitalOutput pin3 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "LED3", PinState.LOW);
-	final GpioPinDigitalOutput pin4 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06, "LED6", PinState.LOW);
-	final GpioPinDigitalOutput pin5 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05, "LED5", PinState.LOW);
-	final GpioPinDigitalOutput pin6 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06, "LED6", PinState.LOW);
-	final GpioPinDigitalOutput pin7 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07, "LED7", PinState.LOW);
-	final GpioPinDigitalOutput pin8 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_08, "LED8", PinState.LOW);
+	pin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02, "LED2", PinState.LOW);
+	pin3 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03, "LED3", PinState.LOW);
+	pin4 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "LED4", PinState.LOW);
+	pin5 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05, "LED5", PinState.LOW);
+	pin6 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06, "LED6", PinState.LOW);
+	pin7 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07, "LED7", PinState.LOW);
+	pin8 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_08, "LED8", PinState.LOW);
 
   }
 
@@ -77,21 +78,21 @@ public Digit()
       if (num == 5)
 	{
 	pin2.high();
-	pin3.high();
-	pin4.low();
+	pin3.low();
+	pin4.high();
 	pin5.high();
-	pin6.high();
-	pin7.low();
+	pin6.low();
+	pin7.high();
 	pin8.high();
 	}
       if (num == 6)
 	{
 	pin2.high();
-	pin3.high();
+	pin3.low();
 	pin4.high();
 	pin5.high();
 	pin6.high();
-	pin7.low();
+	pin7.high();
 	pin8.high();
 
 	}
@@ -124,9 +125,7 @@ public Digit()
 	pin6.low();
 	pin7.high();
 	pin8.high();
-	}
-// stop all GPIO activity/threads by shutting down the GPIO controller         
-// (this method will forcefully shutdown all GPIO monitoring threads and scheduled tasks)         gpio.shutdown();   
+	}  
   }
 
 public void clear()

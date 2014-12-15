@@ -1,6 +1,6 @@
 public class DigitClient
 {
-   public static void main(String[] args)
+   public static void main(String[] args) throws InterruptedException
    {
 	Digit user = new Digit();
 
@@ -13,4 +13,5 @@ public class DigitClient
 	
 	user.shutdown();
    }
+}
 
