@@ -2,16 +2,16 @@ public class RDClient
 {
     public static void main(String[] args) throws InterruptedException
     {
-	int y = 0;
+	int y;
         RunningDigits user = new RunningDigits();
         for (int i = 0; i < 10; i++)
         {
 	    y = i;
-            for (int i = 1; i <= 4; i++)
+            for (int n = 1; n <= 4; n++)
 	    {
-		user.chooseNum(i);
+		user.chooseNum(n);
 	    	user.setNumber(y);
-            	Thread.sleep(00);
+            	Thread.sleep(600);
             	user.clear();
 	     }
         }
